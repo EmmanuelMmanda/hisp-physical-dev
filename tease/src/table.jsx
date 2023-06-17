@@ -7,22 +7,14 @@ const Table = (props) => {
   const pe = dimensions["pe"];
   const ou = dimensions["ou"];
   const dx = dimensions["dx"];
-  const rows =  props.data.metaData.dimensions
+  const rows = props.data.metaData.dimensions;
 
-  console.log(rows)
-  const HIvtestperformed = data.metaData.items.JSUnuftClqK.name;
-  const HIVTestPositive = data.metaData.items.LV138qS9eCD.name;
-  const HIVtestPositiverate = data.metaData.items.bD67D0kVEJQ.name;
-  const PLHIVNewART = data.metaData.items.tsMR4m66ili.name;
-  const PLHIVCurrentART = data.metaData.items.aLH7eJpIxvn.name;
-  const AnimalRegion = data.metaData.items.zj9LoeErgkP.name;
-  const FoodRegion = data.metaData.items.gwAcS6gaz7D.name;
-  const dec22 = data.metaData.items["202212"].name;
-  const jan23 = data.metaData.items["202301"].name;
-  const feb23 = data.metaData.items["202302"].name;
-  const mar23 = data.metaData.items["202303"].name;
-  const apr23 = data.metaData.items["202304"].name;
-  const may23 = data.metaData.items["202305"].name;
+  console.log(rows);
+
+  const getActualName = (id) => {
+    const name = data.metaData.items;
+    return name[id].name;
+  };
 
   //   console.log(
   //     HIvtestperformed,
@@ -47,7 +39,7 @@ const Table = (props) => {
           {ou.map((dim, index) => {
             return (
               <th colSpan="5" key={index}>
-                {dim}
+                {getActualName(dim)}
               </th>
             );
           })}
@@ -57,7 +49,7 @@ const Table = (props) => {
             return dx.map((dx, index) => {
               return (
                 <>
-                  <th key={index}>{dx}</th>
+                  <th key={index}>{getActualName(dx)}</th>
                 </>
               );
             });
@@ -68,7 +60,7 @@ const Table = (props) => {
         {pe.map((period, index) => {
           return (
             <tr key={index}>
-              <td>{period}</td>
+              <td>{getActualName(period)}</td>
               <td>84,222</td>
               <td>13,334</td>
               <td>17</td>
