@@ -7,30 +7,32 @@ const Table = (props) => {
   const pe = dimensions["pe"];
   const ou = dimensions["ou"];
   const dx = dimensions["dx"];
-  const rows = props.data.metaData.dimensions;
-
-  console.log(rows);
+  const rows = props.data.rows;
 
   const getActualName = (id) => {
     const name = data.metaData.items;
     return name[id].name;
   };
+  const getActualValue = (data, period, organizationunit) => {
+    console.log(rows);
+    
 
-  //   console.log(
-  //     HIvtestperformed,
-  //     HIVTestPositive,
-  //     HIVtestPositiverate,
-  //     PLHIVNewART,
-  //     AnimalRegion,
-  //     FoodRegion,
-  //     PLHIVCurrentART,
-  //     dec22,
-  //     jan23,
-  //     feb23,
-  //     mar23,
-  //     apr23,
-  //     may23
-  //   );
+    return (
+      <>
+        <td>84,222</td>
+        <td>13,334</td>
+        <td>17</td>
+        <td>263,122</td>
+        <td>3500</td>
+        <td>4451</td>
+        <td>5472</td>
+        <td>12.4</td>
+        <td>82047</td>
+        <td>1940</td>
+      </>
+    );
+  };
+
   return (
     <table border="1">
       <thead>
@@ -47,11 +49,7 @@ const Table = (props) => {
         <tr>
           {ou.map(() => {
             return dx.map((dx, index) => {
-              return (
-                <>
-                  <th key={index}>{getActualName(dx)}</th>
-                </>
-              );
+              return <th key={index}>{getActualName(dx)}</th>;
             });
           })}
         </tr>
@@ -61,16 +59,8 @@ const Table = (props) => {
           return (
             <tr key={index}>
               <td>{getActualName(period)}</td>
-              <td>84,222</td>
-              <td>13,334</td>
-              <td>17</td>
-              <td>263,122</td>
-              <td>3500</td>
-              <td>4451</td>
-              <td>5472</td>
-              <td>12.4</td>
-              <td>82047</td>
-              <td>1940</td>
+              {/* actual data */}
+              {getActualValue()}
             </tr>
           );
         })}
