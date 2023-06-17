@@ -27,6 +27,9 @@ git clone https://github.com/EmmanuelMmanda/hisp-physical-dev.git
 ```bash
 cd hisp-physical-dev
 ```
+```bash
+cd tease
+```
 ```node
 npm install
 ```

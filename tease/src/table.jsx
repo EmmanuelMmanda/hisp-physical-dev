@@ -3,32 +3,37 @@ import propTypes from "prop-types";
 const Table = (props) => {
   // method to fetch data
   const data = props.data;
-  const dimensions = props.data.metaData.dimensions;
+  const dimensions = data.metaData.dimensions;
   const pe = dimensions["pe"];
   const ou = dimensions["ou"];
   const dx = dimensions["dx"];
-  const rows = props.data.rows;
+  const rowsData = data.rows;
 
   const getActualName = (id) => {
     const name = data.metaData.items;
     return name[id].name;
   };
-  const getActualValue = (data, period, organizationunit) => {
-    console.log(rows);
-    
 
+  const getActualValue = (iData, data, period, organizationunit) => {
+    iData.map((row) => {
+      row.map((items) => {});
+    });
     return (
       <>
-        <td>84,222</td>
-        <td>13,334</td>
-        <td>17</td>
-        <td>263,122</td>
-        <td>3500</td>
-        <td>4451</td>
-        <td>5472</td>
-        <td>12.4</td>
-        <td>82047</td>
-        <td>1940</td>
+        {
+          <>
+            <td>5544</td>
+            <td>13,334</td>
+            <td>17</td>
+            <td>263,122</td>
+            <td>3500</td>
+            <td>5544</td>
+            <td>13,334</td>
+            <td>17</td>
+            <td>263,122</td>
+            <td>3500</td>
+          </>
+        }
       </>
     );
   };
@@ -60,7 +65,7 @@ const Table = (props) => {
             <tr key={index}>
               <td>{getActualName(period)}</td>
               {/* actual data */}
-              {getActualValue()}
+              {getActualValue(rowsData, period, "")}
             </tr>
           );
         })}
