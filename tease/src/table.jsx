@@ -15,9 +15,7 @@ const Table = (props) => {
   };
 
   const getActualValue = (iData, data, period, organizationunit) => {
-    iData.map((row) => {
-      row.map((items) => {});
-    });
+    console.log(iData, data, period, organizationunit);
     return (
       <>
         {
